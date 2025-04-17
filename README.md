@@ -10,7 +10,8 @@ It is **publicly accessible**, so devices and users can download the latest firm
 
 ```text
 /
-├── main.mpy              # Compiled MicroPython firmware
+├── main.py               # MicroPython firmware main.py execution file
+├── saucemill_firmware.mpy              # Compiled MicroPython firmware
 ├── manifest.json         # OTA metadata with version, SHA, signature
 ├── README.md             # Project information
 ```
