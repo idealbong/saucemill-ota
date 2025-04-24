@@ -9,11 +9,12 @@ It is **publicly accessible**, so devices and users can download the latest firm
 ## 📦 Repository Structure
 
 ```text
+/README.md                   # Project information
 /Model_number                # Every Model Number has his own firmware
    ├── main.py               # MicroPython firmware main.py execution file
    ├── saucemill_firmware.mpy              # Compiled MicroPython firmware
    ├── manifest.json         # OTA metadata with version, SHA, signature
-   ├── README.md             # Project information
+
 ```
 
 ---
