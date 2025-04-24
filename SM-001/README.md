@@ -9,11 +9,11 @@ It is **publicly accessible**, so devices and users can download the latest firm
 ## 📦 Repository Structure
 
 ```text
-/
-├── main.py               # MicroPython firmware main.py execution file
-├── saucemill_firmware.mpy              # Compiled MicroPython firmware
-├── manifest.json         # OTA metadata with version, SHA, signature
-├── README.md             # Project information
+/Model_number                # Every Model Number has his own firmware
+   ├── main.py               # MicroPython firmware main.py execution file
+   ├── saucemill_firmware.mpy              # Compiled MicroPython firmware
+   ├── manifest.json         # OTA metadata with version, SHA, signature
+   ├── README.md             # Project information
 ```
 
 ---
@@ -48,6 +48,7 @@ python publish_ota.py
 ```
 
 This will:
+
 - Merge and compile firmware
 - Generate `main.mpy` and `manifest.json`
 - Push to this repository
@@ -59,6 +60,7 @@ This will:
 This repository follows [semantic versioning](https://semver.org/) based on Git tags in the main firmware project.
 
 Example:  
+
 - Tag `v1.2.0` → `manifest.json.version = "v1.2.0"`
 
 ---
