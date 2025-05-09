@@ -1,7 +1,7 @@
 {
   "version": "v0.2.5",
-  "sha": "db2e204e87ade7dd5e51479b2a9990733e786e1e",
+  "sha": "e7c410e56a2680ebd6ffdbe5b33304bad0730235",
   "target": "saucemill_firmware.mpy",
-  "signature": "30449ac6f8846f63fae81ec095baa87365c5f67fb392c0c7875c057e86d84242",
-  "timestamp": "2025-05-09T06:52:31.309129+00:00"
+  "signature": "f66277368ad7c0c9aa0ec99235eda762d495f999ba7591b417899905929ed04e",
+  "timestamp": "2025-05-09T07:21:45.653857+00:00"
 }
