@@ -25,25 +25,33 @@ def save_device_info(info):
         
 def rollback_firmware():
     """
-    /backup 디렉토리에 저장된 이전 펌웨어로 복원합니다.
+    /backup 디렉토리에 저장된 모든 일반 파일을 루트 디렉토리로 복원합니다.
     """
-    files_to_restore = FIRMWARE_FILES
     backup_dir = BACKUP_DIR
+
+    try:
+        files_to_restore = [
+            f for f in os.listdir(backup_dir)
+            if os.stat(f"{backup_dir}/{f}")[0] & 0o170000 == 0o100000  # 일반 파일만
+        ]
+    except Exception as e:
+        print(f"⚠️ Failed to list backup dir: {e}")
+        return
 
     for fname in files_to_restore:
         src = f"{backup_dir}/{fname}"
         dst = f"/{fname}"
-        if fname in os.listdir(backup_dir):
-            try:
-                with open(src, "rb") as fsrc, open(dst, "wb") as fdst:
-                    while True:
-                        chunk = fsrc.read(512)
-                        if not chunk:
-                            break
-                        fdst.write(chunk)
-                print(f"🔙 롤백 완료: {dst}")
-            except Exception as e:
-                print(f"Rollback failed: {e}")
+        try:
+            with open(src, "rb") as fsrc, open(dst, "wb") as fdst:
+                while True:
+                    chunk = fsrc.read(512)
+                    if not chunk:
+                        break
+                    fdst.write(chunk)
+            print(f"Rollback completed: {dst}")
+        except Exception as e:
+            print(f"⚠️ Rollback failed for {fname}: {e}")
+
 
 
 def rollback_if_needed():
